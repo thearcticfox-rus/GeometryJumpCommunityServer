@@ -11,7 +11,7 @@ Tested version of PHP: 8.2.7
 ## Setup
 1) Prepare your server
 
-sudo apt install php mariadb-server apache2
+sudo apt install php mariadb-server apache2 php-mysql
 
 2) Upload the files on a webserver
 
