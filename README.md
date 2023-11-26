@@ -29,9 +29,11 @@ CREATE DATABASE databasename;
 
 GRANT ALL PRIVILEGES ON databasename.* TO 'yourusername'@'localhost';
 
+FLUSH PRIVILEGES;
+
 exit;
 
-mysql -u yourusername -p yourpassword databasename < /path/to/your/database.sql
+mysql -u yourusername -pyourpassword databasename < /path/to/your/database-file.sql
 
 4) Prepare "connection.php" file
 
