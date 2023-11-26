@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost";
-$username = "";
-$password = "";
-$dbname = "";
+$username = "gjps";
+$password = "cmd156";
+$dbname = "gjps";
 ?>
