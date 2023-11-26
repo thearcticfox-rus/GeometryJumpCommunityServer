@@ -31,7 +31,9 @@ GRANT ALL PRIVILEGES ON databasename.* TO 'yourusername'@'localhost';
 
 exit;
 
-mysql -u yourusername -p yourpassword databasename < /path/to/your/database.sql
+mysql -u yourusername -p yourpassword
+
+source /path/to/your/database-file.sql
 
 4) Prepare "connection.php" file
 
