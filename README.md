@@ -12,18 +12,18 @@ Tested version of PHP: 8.2.7
 1) Prepare your server
 sudo apt install php mariadb-server apache2
 2) Upload the files on a webserver
-	git clone https://github.com/thearcticfox-rus/GeometryJumpCommunityServer.git
-	cp -r ./GeometryJumpCommunityServer /var/www/html/gjcsdir
+git clone https://github.com/thearcticfox-rus/GeometryJumpCommunityServer.git
+cp -r ./GeometryJumpCommunityServer /var/www/html/gjcsdir
 3) Import database.sql into a MariaDB database
-	sudo mysql
-	CREATE USER 'yourusername'@'localhost' IDENTIFIED BY 'yourpassword';
-	CREATE DATABASE databasename;
-	GRANT ALL PRIVILEGES ON databasename.* TO 'yourusername'@'localhost';
-	exit;
-	mysql -u yourusername -p yourpassword databasename < /path/to/your/database.sql
+sudo mysql
+CREATE USER 'yourusername'@'localhost' IDENTIFIED BY 'yourpassword';
+CREATE DATABASE databasename;
+GRANT ALL PRIVILEGES ON databasename.* TO 'yourusername'@'localhost';
+exit;
+mysql -u yourusername -p yourpassword databasename < /path/to/your/database.sql
 4) Prepare "connection.php" file
-	sudo nano /var/www/html/gjcsdir/config/connection.php
-	Ajust the settings for your database
+sudo nano /var/www/html/gjcsdir/config/connection.php
+Ajust the settings for your database
 5) Edit the links in GeometryDash.exe
 
 ### Credits
