@@ -76,9 +76,6 @@ class Commands {
 			$query->execute([':levelID' => $levelID]);
 			$query = $db->prepare("INSERT INTO modactions (type, value, value3, timestamp, account) VALUES ('4', :value, :levelID, :timestamp, :levelID)");
 			$query->execute([':value' => "1", ':timestamp' => $uploadDate, ':levelID' => $accountID, ':levelID' => $levelID]);
-			if(file_exists(dirname(__FILE__)."../../data/levels/$levelID")){
-				rename(dirname(__FILE__)."../../data/levels/$levelID",dirname(__FILE__)."../../data/levels/deleted/$levelID");
-			}
 			return true;
 		}
 		if(substr($comment,0,7) == '!setacc' AND $gs->checkPermission($accountID, "commandSetacc")){
@@ -89,11 +86,11 @@ class Commands {
 			}
 			$targetAcc = $query->fetchColumn();
 			//var_dump($result);
-			$query = $db->prepare("SELECT userID FROM users WHERE extID = :extID LIMIT 1");
-			$query->execute([':extID' => $targetAcc]);
-			$userID = $query->fetchColumn();
-			$query = $db->prepare("UPDATE levels SET extID=:extID, userID=:userID, userName=:userName WHERE levelID=:levelID");
-			$query->execute([':extID' => $targetAcc, ':userID' => $userID, ':userName' => $commentarray[1], ':levelID' => $levelID]);
+			$query = $db->prepare("SELECT accountID FROM accounts WHERE accountID = :accountID LIMIT 1");
+			$query->execute([':accountID' => $targetAcc]);
+			$accountID = $query->fetchColumn();
+			$query = $db->prepare("UPDATE levels SET accountID=:accountID, userName=:userName WHERE levelID=:levelID");
+			$query->execute([':accountID' => $targetAcc, ':accountID' => $accountID, ':userName' => $commentarray[1], ':levelID' => $levelID]);
 			$query = $db->prepare("INSERT INTO modactions (type, value, value3, timestamp, account) VALUES ('5', :value, :levelID, :timestamp, :levelID)");
 			$query->execute([':value' => $commentarray[1], ':timestamp' => $uploadDate, ':levelID' => $accountID, ':levelID' => $levelID]);
 			return true;

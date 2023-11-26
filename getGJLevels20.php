@@ -158,11 +158,14 @@ switch($type){
 		break;
 }
 //ACTUAL QUERY EXECUTION
-$querybase = "FROM levels LEFT JOIN songs ON levels.songID = songs.ID LEFT JOIN accounts ON levels.accountID = accounts.accountID";
+//$querybase = "FROM levels LEFT JOIN songs ON levels.songID = songs.ID LEFT JOIN accounts ON levels.accountID = accounts.accountID";
+
+$querybase = "FROM levels LEFT JOIN accounts ON levels.accountID = accounts.accountID";
+
 if(!empty($params)){
 	$querybase .= " WHERE (" . implode(" ) AND ( ", $params) . ")";
 }
-$query = "SELECT levels.*, songs.ID, songs.name, songs.authorID, songs.authorName, songs.size, songs.isDisabled, songs.download, accounts.userName, accounts.accountID $querybase";
+$query = "SELECT levels.*, NULL as ID, NULL as name, NULL as authorID, NULL as authorName, NULL as size, NULL as isDisabled, NULL as download, accounts.userName, accounts.accountID $querybase";
 if($order){
 	$query .= "ORDER BY $order DESC";
 }
