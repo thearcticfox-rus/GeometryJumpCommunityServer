@@ -29,6 +29,8 @@ CREATE DATABASE databasename;
 
 GRANT ALL PRIVILEGES ON databasename.* TO 'yourusername'@'localhost';
 
+FLUSH PRIVILEGES;
+
 exit;
 
 mysql -u yourusername -p yourpassword
