@@ -33,9 +33,7 @@ FLUSH PRIVILEGES;
 
 exit;
 
-mysql -u yourusername -p yourpassword
-
-source /path/to/your/database-file.sql
+mysql -u yourusername -pyourpassword databasename < /path/to/your/database-file.sql
 
 4) Prepare "connection.php" file
 
